@@ -9,8 +9,7 @@ class CountersModel {
     }
 
     fun next(position: Int): Int {
-        val newResult = counters[position]++
-        return newResult
+        return counters[position]++
     }
 
     fun set(position: Int, value: Int) {
