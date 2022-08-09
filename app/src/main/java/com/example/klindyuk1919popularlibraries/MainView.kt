@@ -1,6 +1,16 @@
 package com.example.klindyuk1919popularlibraries
 
-interface MainView {
+import moxy.MvpView
+import moxy.viewstate.strategy.AddToEndSingleStrategy
+import moxy.viewstate.strategy.StateStrategyType
 
-    fun renderData(counter: String, position: Int)
+@StateStrategyType(AddToEndSingleStrategy::class)
+interface MainView : MvpView {
+
+    fun setCounterOneText(counter: String)
+
+    fun setCounterTwoText(counter: String)
+
+    fun setCounterThreeText(counter: String)
+
 }

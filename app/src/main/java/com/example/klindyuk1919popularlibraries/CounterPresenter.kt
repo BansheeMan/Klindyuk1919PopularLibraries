@@ -1,12 +1,23 @@
 package com.example.klindyuk1919popularlibraries
 
-class CounterPresenter(
-    private val view: MainView,
-    private val model: CountersModel = CountersModel()
-) {
+import moxy.MvpPresenter
 
-    fun onCounterClick(key: Int) {
-        val newValue = model.next(key).toString()
-        view.renderData(newValue, key)
+class CounterPresenter(
+    private val model: CountersModel
+) : MvpPresenter<MainView>() {
+
+    fun onCounterOneClick() {
+        val newValue = model.next(0)
+        viewState.setCounterOneText(newValue.toString())
+    }
+
+    fun onCounterTwoClick() {
+        val newValue = model.next(1)
+        viewState.setCounterTwoText(newValue.toString())
+    }
+
+    fun onCounterThreeClick() {
+        val newValue = model.next(2)
+        viewState.setCounterThreeText(newValue.toString())
     }
 }
